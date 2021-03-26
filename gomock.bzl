@@ -1,4 +1,4 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_context", "go_rule")
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_context")
 load("@io_bazel_rules_go//go/private:providers.bzl", "GoLibrary")
 
 _MOCKGEN_TOOL = "@com_github_golang_mock//mockgen"
@@ -36,7 +36,7 @@ def _gomock_source_impl(ctx):
         ),
     )
 
-_gomock_source = go_rule(
+_gomock_source = rule(
     _gomock_source_impl,
     attrs = {
         "library": attr.label(
@@ -150,7 +150,7 @@ def _gomock_prog_gen_impl(ctx):
         ),
     )
 
-_gomock_prog_gen = go_rule(
+_gomock_prog_gen = rule(
     _gomock_prog_gen_impl,
     attrs = {
         "library": attr.label(
@@ -207,7 +207,7 @@ def _gomock_prog_exec_impl(ctx):
         },
     )
 
-_gomock_prog_exec = go_rule(
+_gomock_prog_exec = rule(
     _gomock_prog_exec_impl,
     attrs = {
         "library": attr.label(
